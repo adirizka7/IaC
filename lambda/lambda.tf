@@ -1,14 +1,14 @@
 data "archive_file" "lambda" {
   type        = "zip"
-  source_file = "pybase/lambda.py"
-  output_path = "pybase/lambda.zip"
+  source_file = "pybase/main.py"
+  output_path = "pybase/main.zip"
 }
 
 resource "aws_lambda_function" "lambda" {
   filename      = data.archive_file.lambda.output_path
   function_name = local.function_name
   role          = aws_iam_role.lambda.arn
-  handler       = "lambda.lambda_handler"
+  handler       = "main.handler"
 
   source_code_hash = data.archive_file.lambda.output_base64sha256
 

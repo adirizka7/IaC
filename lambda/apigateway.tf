@@ -56,7 +56,7 @@ resource "aws_api_gateway_usage_plan" "production" {
   }
 
   quota_settings {
-    limit  = 2
+    limit  = 100
     offset = 0
     period = "DAY"
   }

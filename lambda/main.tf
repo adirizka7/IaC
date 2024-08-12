@@ -12,6 +12,6 @@ provider "aws" {
 }
 
 locals {
-  function_name  = "YourSuperCoolFunctionName"
+  function_name  = "GPXify"
   python_version = "python3.12"
 }
